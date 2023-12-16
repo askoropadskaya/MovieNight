@@ -8,7 +8,7 @@ body{
 
 .navbar{
     width: 100%;
-    height: 70px;
+    height: 50px;
     background-color: #0A2463;
 }
 
@@ -18,12 +18,12 @@ body{
     margin: 0 60px;
     padding: 0 10px;
     height: 100%;
-    color: #e2e2e2;
+    color: #E2E2E2;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 } 
 
 .logo-container{
-    flex: 3;
+    flex: 5;
     /* background-color: blueviolet; */
 }
 
@@ -34,7 +34,7 @@ body{
 }
 
 .menu-container{
-    flex: 6;
+    flex: 3;
 }
 
 .menu-list{
@@ -47,6 +47,10 @@ body{
     margin-right: 30px;
 }
 
+.menu-nav-link{
+    color: #E2E2E2;    
+}
+
 .menu-list-item.active{
    font-weight: bold;
 }
@@ -55,21 +59,73 @@ body{
     flex: 2;
     display: flex;
     align-items: center;
+    justify-content: right;
+    /* margin-left: 30px; */
+
 }
 
 .profile-text-container{
-    margin: 0 20px ;
+    margin: 10px 10px ;
+    align-items: center;
 }
 
 .profile-picture{
     width: 32px;
     height: 32px;
     border-radius: 50%;
+    margin-right: 8px;
     object-fit: cover;
 }
 
+/* .dropdown{
+background-color: #E2E2E2;
+color:#0A2463;
+padding: 16px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+} */
+
+/* Dropdown button on hover & focus */
+/* .dropdown:hover, .dropdown:focus {
+background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #E2E2E2;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    offset-position: 8px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #888;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 .sidebar{
-    width: 70px;
+    width: 50px;
     height: 100%;
     background-color: #0A2463;
     position: fixed;
@@ -81,16 +137,51 @@ body{
 }
 
 .left-menu-icon{
-    color: #e2e2e2;
+    color: #E2E2E2;
     font-size: 20px;
     margin-bottom: 20px;
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 .container{
-    background-color:#E2E2E2;
-    height:calc(100vh - 50px);
-    color: #605F5E;
+    background-color: black;
+    min-height:calc(100vh - 50px);
+    color: #FB3640;
+}
+
+.input-form{
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #00000088;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+
+.input-field{
+    color: #E2E2E2;
+    padding: 5px 10px;
+    margin: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.form-control{
+    padding: 8px;
+}
+
+.submit-form-button{
+    background-color: #247BA0;
+    color: #E2E2E2;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    /* position: absolute; */
+    bottom: 20px;
+    left: 50px;
 }
 
 .content-container{
@@ -98,11 +189,115 @@ body{
 }
 
 .featured-content{
-    height: 50vh;
+    height: 40vh;
     padding: 50px;
     background-color: #247BA0;
 }
 
 .featured-title{
     width: 200px;
+}
+
+.featured-discription{
+    width: 500px;
+    color: #FB3640;
+    margin: 30px 0;
+}
+
+.featured-button{
+    background-color: #FB3640;
+    color:#0A2463;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.movie-list-container{
+    padding: 20px;
+}
+
+.movie-list-wrapper{
+    position: relative;
+    /* background-color: #E2E2E2; */
+}
+
+.movie-list{
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+
+.movie-list-item{
+    margin-right: 30px;
+    position: relative;
+}
+
+.movie-list-item:hover .movie-list-item-img{
+    transform: scale(1.2);
+    margin: 0 30px;
+    opacity: 0.5;
+}
+
+.movie-list-item:hover .movie-list-item-title,
+.movie-list-item:hover .movie-list-item-description,
+.movie-list-item:hover .movie-list-item-btn{
+    opacity: 1;
+}
+
+.movie-list-item-img{
+    transition: all 1s ease-in-out;
+    width: 170px;
+    height: 240px;
+    object-fit: cover;
+}
+
+.movie-list-item-title{
+    background-color: #E2E2E2;
+    padding: 0 10px;
+    font-size: 32;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.movie-list-item-description{
+    background-color: #E2E2E2;
+    padding: 0 10px;
+    font-size: 32;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    opacity: 0;
+}
+
+.movie-list-item-btn{
+    padding: 10px;
+    background-color: #FB3640;
+    color:#0A2463;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    /* cursor: pointer; */
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+}
+
+.arrow{
+    font-size: 80px;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    color: #E2E2E2;
+    opacity: 0.5;
+    cursor: pointer;
 }

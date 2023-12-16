@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "lay.html" %}
 
 {% block title %}
     Register
@@ -6,26 +6,24 @@
 
 {% block main %}
     <form action="/register" method="post">
-
-        <h2>Register</h1>
-        <p>Please, fill in this form out to create an account.</p>
-        <hr>
-
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text" autocomplete="username" required>
+        <div class="input-form"> 
+            <label class="w3-text"><b>Username</b></label>
+            <div class="input-field">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" type="text" autocomplete="username" required>
+            </div>
+            <br>
+            <label class="w3-text"><b>Password</b></label>
+            <div class="input-field">
+                <input class="form-control mx-auto w-auto" id="password" name="password" type="password" autocomplete="new-password" required>
+            </div>
+            <br>
+            <label class="w3-text"><b>Repeat Password</b></label>
+            <div class="input-field">
+                <input class="form-control mx-auto w-auto" id="password" name="confirmation" type="password" autocomplete="new-password" required>
+                <span id='message'></span>
+            </div>  
+            <br>  
+            <button class="submit-form-button" type="submit">Register</button>
         </div>
-        <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password" autocomplete="new-password" required>
-        </div>
-
-        <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="password" name="confirmation" placeholder="Repeat Password" type="password" autocomplete="new-password" required>
-            <span id='message'></span>
-        <hr>
-        <button class="btn btn-primary" type="submit">Register</button>
-
-        <div>
-            <p>Already have an account? <a href="login">Log In</a>.</p>
-          </div>
     </form>
 {% endblock %}
