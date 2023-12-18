@@ -1,10 +1,15 @@
 from datetime import date, timedelta
+import random
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 import sqlite3
 
 from helpers import apology, login_required
+
+NOT_VOTED_YET = 0
+VOTED_NOT_SELECTED = 1
+VOTED_SELECTED = 2
 
 app = Flask(__name__)
 
@@ -14,7 +19,7 @@ Session(app)
 
 db_con = sqlite3.connect("movienight.db", check_same_thread=False)
 create_users_table = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR (15) NOT NULL, hash VARCHAR (20) NOT NULL);"
-create_votes_table = "CREATE TABLE IF NOT EXISTS votes (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, movie_name TEXT NOT NULL, timestamp TEXT NOT NULL);"
+create_votes_table = "CREATE TABLE IF NOT EXISTS votes (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, movie_name TEXT NOT NULL, timestamp TEXT NOT NULL, status INTEGER NOT NULL, poster_url TEXT NOT NULL);"
 db_con.cursor().execute(create_users_table)
 db_con.cursor().execute(create_votes_table)
 
@@ -43,28 +48,40 @@ def hello():
     ).fetchall()
     print(f"all today's votes: {all_votes}")
 
+    winner_vote = db_con.cursor().execute(
+            "SELECT * FROM votes WHERE timestamp = ? AND status = ?", (today, VOTED_SELECTED)
+        ).fetchone()
+    draw_button_enabled = len(all_votes) > 0 and winner_vote is None
+
     if request.method == "GET":
-        return render_template("homepage.html", voted=voted, vote=vote, today=today, all_votes=all_votes)
+        return render_template(
+            "homepage.html", 
+            voted=voted, 
+            vote=vote, 
+            today=today, 
+            all_votes=all_votes, 
+            draw_button_enabled=draw_button_enabled,
+            winner_vote=winner_vote
+        )
         
     if request.method == "POST":
+        if vote is not None and vote[4] != NOT_VOTED_YET:
+            return apology("Can't change vote after DRAW", 400)
+
         if not request.form.get("moviename"):
             return apology("must provide movie name", 400)
         
-        # db_con.cursor().execute(
-        #     "INSERT OR IGNORE INTO votes (user_id, movie_name, timestamp) VALUES (?, ?, ?)", (session["user_id"],request.form.get("moviename"),  today)
-        # ).fetchone()
-
-        # db_con.cursor().execute(
-        #     "UPDATE votes SET movie_name = ? WHERE user_id=? and timestamp=?", (request.form.get("moviename"), session["user_id"], today)
-        # )
+        if not request.form.get("poster_url"):
+            return apology("must provide movie name", 400)
+        
         if voted:
             db_con.cursor().execute(
-                "UPDATE votes set movie_name = ? WHERE id = ?", (request.form.get("moviename"), vote[0])
+                "UPDATE votes set movie_name = ?, poster_url = ? WHERE id = ?", (request.form.get("moviename"), request.form.get("poster_url"), vote[0])
             )
             db_con.commit()
         else:
             db_con.cursor().execute(
-                "INSERT into votes (user_id, movie_name, timestamp) VALUES(?,?,?)", (session["user_id"],request.form.get("moviename"),  today)
+                "INSERT into votes (user_id, movie_name, timestamp, status, poster_url) VALUES(?,?,?,?,?)", (session["user_id"],request.form.get("moviename"),  today, NOT_VOTED_YET, request.form.get("poster_url"))
             )
             db_con.commit()
         return redirect("/")    
@@ -73,8 +90,29 @@ def hello():
 @app.route("/draw", methods=["POST"])
 @login_required
 def draw():
-    return apology("draw test")
+    today = date.today()
+    all_votes = db_con.cursor().execute(
+        "SELECT * FROM votes WHERE timestamp = ?", (today,)
+    ).fetchall()
 
+    if any([voted(v) for v in all_votes]):
+        return redirect("/")
+    
+    winner_index = random.randint(0, len(all_votes) - 1)
+    winner_id = all_votes[winner_index][0]
+    for v in all_votes:
+        if v[0] == winner_id: status = VOTED_SELECTED 
+        else: status = VOTED_NOT_SELECTED
+        db_con.cursor().execute(
+            "UPDATE votes set status = ? WHERE id = ?", (status, v[0])
+        )
+        db_con.commit()
+    return redirect("/")
+    
+
+
+def voted(vote):
+    return vote[4] != NOT_VOTED_YET
 # @app.route("/apology")
 # def testApology():
 #     return apology("Test error message")
@@ -141,7 +179,7 @@ def register():
         # Remember which user has logged in
         session["user_id"] = user[0]
         session["user_name"] = user[1]
-        session["user_initial"] = users[1][0]
+        # session["user_initial"] = users[1]
 
         # Redirect user to home page
         return redirect("/")

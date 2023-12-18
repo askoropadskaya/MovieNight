@@ -35,12 +35,6 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbar">
                             {% if session["user_id"] %}
-                        <!-- <ul class="navbar-nav me-auto mt-2" id="navigation">
-                            <li class="nav-item"><a class="nav-link" id="{{ 'nav-link-selected' if nav_item == 'quote' else '' }}" href="/quote">Quote</a></li>
-                            <li class="nav-item"><a class="nav-link" id="{{ 'nav-link-selected' if nav_item == 'buy' else '' }}" href="/buy">Buy</a></li>
-                            <li class="nav-item"><a class="nav-link" id="{{ 'nav-link-selected' if nav_item == 'sell' else '' }}" href="/sell">Sell</a></li>
-                            <li class="nav-item"><a class="nav-link" id="{{ 'nav-link-selected' if nav_item == 'history' else '' }}" href="/history">History</a></li>
-                        </ul> -->
                         <ul class="navbar-nav ms-auto mt-2">
                             <li class="nav-item"><a class="nav-link">{{ session["user_name"] }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
