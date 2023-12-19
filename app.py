@@ -108,19 +108,10 @@ def draw():
         )
         db_con.commit()
     return redirect("/")
-    
 
 
 def voted(vote):
     return vote[4] != NOT_VOTED_YET
-# @app.route("/apology")
-# def testApology():
-#     return apology("Test error message")
-
-# @app.route('/about/')
-# def about():
-#     return '<h3>This is a Flask web application.</h3>'
-
 
 @app.route("/logout")
 def logout():
@@ -160,7 +151,6 @@ def register():
             "SELECT * FROM users WHERE username = ?", (request.form.get("username"),)
         ).fetchall()
 
-        # print(users)
         # Ensure username does not exist
         if len(users) > 0:
             return apology("User already exists, please login instead", 400)
@@ -179,7 +169,6 @@ def register():
         # Remember which user has logged in
         session["user_id"] = user[0]
         session["user_name"] = user[1]
-        # session["user_initial"] = users[1]
 
         # Redirect user to home page
         return redirect("/")
@@ -225,7 +214,7 @@ def login():
             users[0][2], request.form.get("password")
         ):
             return apology("invalid username or password", 403)
-# check_password_hash(users[0]["hash"], request.form.get("password"))
+        
         # Remember which user has logged in
         session["user_id"] = users[0][0]
         session["user_name"] = users[0][1]
@@ -237,12 +226,4 @@ def login():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
-
-def drawDate():
-    todays_date = date.today()
-    print('Today Date:',todays_date)
-    nextFriday = todays_date + timedelta(days=-todays_date.weekday(), weeks=1)
-    print('Next Friday Date:',nextFriday)
-    return nextFriday
- 
  
