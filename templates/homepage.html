@@ -13,7 +13,7 @@
         {% if winner_vote is not none %}
         <h3 class="movie-list-title">It is time to watch {{ winner_vote[2] }}, have fun!</h3>
         {% else %}
-        <h3 class="movie-list-title">Family Movie Night Draw for today {{ today }}</h3>
+        <h3 class="movie-list-title">Family Movie Night Draw For Today {{ today }}</h3>
         {% endif %}
         <!-- <p>Family Movie Night Draw for {{ today }}</p> -->
         
@@ -54,6 +54,14 @@
     <h2 class="movie-list-title">Votes for the Movie Night</h2>
     <div class="movie-list-wrapper">
         <div class="movie-list">
+            {% if draw_button_enabled %}
+            <div class="movie-list-item">
+                <form action="/draw" method="post">
+                    <button class="featured-button" type="submit">Draw Movie</button>
+                </form>
+            </div>    
+            {% endif %}
+
             {% for v in all_votes %}
             <div class="movie-list-item">
                 <img class="movie-list-item-img" src="{{ v[5] }}" alt="">
@@ -67,16 +75,8 @@
             </div>
             {% endfor %}
 
-            {% if draw_button_enabled %}
-            <div class="movie-list-item"></div>
-                <form action="/draw" method="post">
-                    <button class="featured-button" type="submit">Draw Movie</button>
-                </form>
-            </div>    
-            {% endif %}
-
         </div>
-        <!-- <i class="fa-solid fa-angle-right arrow"></i> -->
+        <i class="arrow fa-solid fa-angle-right arrow"></i>
 
     </div>
 
