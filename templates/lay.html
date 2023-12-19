@@ -24,34 +24,22 @@
                     <ul class="menu-list">
                         <li class="menu-list-item active">Home</li>
                         <i class="menu-list-item fa-solid fa-magnifying-glass" onclick="window.open('https://google.com', '_blank');"  style="cursor: pointer;"></i>
-                        
+
                     </ul>
                 </div>
                 <div class="profile-container">
                     <img class="profile-picture" src=https://www.androidponsel.com/wp-content/uploads/2023/04/dinosaurus-lucu.jpg alt="">
-                    <!-- <span class="profile-text">{{ session["user_name"] }}</span> -->
+
                     <div class="profile-text-container dropdown w3-dropdown-hover">
 
-                        <!-- <div class="w3-dropdown-hover"> -->
                     <span class="profile-text">{{ session["user_name"] }}</span>
-                    <!-- <div class="profile-text-container dropdown w3-dropdown-hover"> -->
-                            <i class="fa-solid fa-chevron-down" style="cursor: pointer;"></i>
-                            <div class="dropdown-content w3-dropdown-content" style="float:left;">
-                              <a href="/logout">Log Out</a>
-
-                        <!-- <i class="fa-solid fa-chevron-down" class="dropdown" style="cursor: pointer;"></i>
-                        <div class="dropdown-content">
-                            <a href="/logout">Log Out</a> -->
+                        <i class="fa-solid fa-chevron-down" style="cursor: pointer;"></i>
+                        <div class="dropdown-content w3-dropdown-content" style="float:left;">
+                            <a href="/logout">Log Out</a>
                         </div>
-
-                        <!-- <i class="fa-solid fa-caret-down"></i> -->
-                        <!-- <i class="fa-solid fa-chevron-down" class="dropdown"></i> -->
-
-                    </div>
-                    
+                    </div>       
                 </div>
-                    <!-- <li class="menu-list-item"><a style="text-decoration:none" class="menu-nav-link" href="/logout">Log Out</a></li>
-                </ul> -->
+
                 {% else %}
                 <div class="profile-container">
                     <ul class="menu-list">
@@ -62,24 +50,11 @@
                 {% endif %}
             </div>
 
-        
-        <!-- <div class="sidebar" onclick="location.href='#';" style="cursor: pointer;">
-            {% if session["user_id"] %}
-            <i class="left-menu-icon fa-solid fa-magnifying-glass" onclick="window.open('https://google.com', '_blank');"  style="cursor: pointer;"></i>
-            <i class="left-menu-icon fa-solid fa-dice" onclick="location.href='/draw';" style="cursor: pointer;"></i>
-            <i class="left-menu-icon fa-solid fa-user-group"></i>
-            <i class="left-menu-icon fa-regular fa-face-smile"></i>
-            {% endif %}
-        </div> -->
-
         <div class="container">
             <div class="content-container">
                 <div class="featured-content"
                     style="background: url('https://i.stack.imgur.com/spmUM.gif')">
-                    <!-- linear-gradient(to bottom, rgba(0,0,0,0), #E2E2E2), -->
-                    <!-- <img class="featured-title" src="https://meadowscastlerock.com/wp-content/uploads/2016/08/Movie-in-The-Park-Paintbrush-Park-The-Meadows-Castle-Rock-CO.jpg" alt=""> -->
-                    <!-- <p class="featured-description">tralivali</p> -->
-                    <!-- <button class="featured-button">VOTE</button> -->
+
                     {% block main %}{% endblock %}
                 </div>
                 {% block secondary %}{% endblock %}
