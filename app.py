@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 import random
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
@@ -69,10 +69,10 @@ def hello():
             return apology("Can't change vote after DRAW", 400)
 
         if not request.form.get("moviename"):
-            return apology("must provide movie name", 400)
+            return apology("Please, provide movie name", 400)
         
         if not request.form.get("poster_url"):
-            return apology("must provide movie name", 400)
+            return apology("Please, provide poster url", 400)
         
         if voted:
             db_con.cursor().execute(

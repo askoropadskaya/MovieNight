@@ -23,28 +23,30 @@
                 <div class="menu-container" onclick="location.href='/';" style="cursor: pointer;">
                     <ul class="menu-list">
                         <li class="menu-list-item active">Home</li>
+                        <i class="menu-list-item fa-solid fa-magnifying-glass" onclick="window.open('https://google.com', '_blank');"  style="cursor: pointer;"></i>
                         <!-- <li class="menu-list-item">Movies</li> -->
                     </ul>
                 </div>
                 <div class="profile-container">
                     <img class="profile-picture" src=https://www.androidponsel.com/wp-content/uploads/2023/04/dinosaurus-lucu.jpg alt="">
+                    <!-- <span class="profile-text">{{ session["user_name"] }}</span> -->
+                    <div class="profile-text-container dropdown w3-dropdown-hover">
+
+                        <!-- <div class="w3-dropdown-hover"> -->
                     <span class="profile-text">{{ session["user_name"] }}</span>
-                    <div class="profile-text-container dropdown">
-                        <i class="fa-solid fa-chevron-down" class="dropdown" style="cursor: pointer;"></i>
+                    <!-- <div class="profile-text-container dropdown w3-dropdown-hover"> -->
+                            <i class="fa-solid fa-chevron-down" style="cursor: pointer;"></i>
+                            <div class="dropdown-content w3-dropdown-content" style="float:left;">
+                              <a href="/logout">Log Out</a>
+
+                        <!-- <i class="fa-solid fa-chevron-down" class="dropdown" style="cursor: pointer;"></i>
                         <div class="dropdown-content">
-                            <a href="/logout">Log Out</a>
+                            <a href="/logout">Log Out</a> -->
                         </div>
 
                         <!-- <i class="fa-solid fa-caret-down"></i> -->
                         <!-- <i class="fa-solid fa-chevron-down" class="dropdown"></i> -->
-  
 
-                        <!-- <div class="dropdown">
-                            <button onclick="myFunction()" class="dropdown">Dropdown</button>
-                            <div id="myDropdown" class="dropdown-content">
-                              <a href="/logout">Log Out</a>
-                            </div>
-                        </div> -->
                     </div>
                     
                 </div>
@@ -61,14 +63,14 @@
             </div>
 
         
-        <div class="sidebar" onclick="location.href='#';" style="cursor: pointer;">
+        <!-- <div class="sidebar" onclick="location.href='#';" style="cursor: pointer;">
             {% if session["user_id"] %}
             <i class="left-menu-icon fa-solid fa-magnifying-glass" onclick="window.open('https://google.com', '_blank');"  style="cursor: pointer;"></i>
             <i class="left-menu-icon fa-solid fa-dice" onclick="location.href='/draw';" style="cursor: pointer;"></i>
             <i class="left-menu-icon fa-solid fa-user-group"></i>
             <i class="left-menu-icon fa-regular fa-face-smile"></i>
             {% endif %}
-        </div>
+        </div> -->
 
         <div class="container">
             <div class="content-container">

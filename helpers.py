@@ -11,9 +11,9 @@ def apology(message, code=400):
 
         https://github.com/jacebrowning/memegen#special-characters
         """
-        for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
-                         ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
-            s = s.replace(old, new)
+        # for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
+        #                  ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
+        #     s = s.replace(old, new)
         return s
     return render_template("apology.html", code=code, message=escape(message)), code
 
