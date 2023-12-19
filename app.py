@@ -227,3 +227,6 @@ def login():
     else:
         return render_template("login.html")
  
+@app.route("/about", methods=["GET"])
+def about():
+    return render_template("about.html")
