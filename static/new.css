@@ -41,7 +41,6 @@ h3{
 
 .logo-container{
     flex: 4;
-    /* background-color: blueviolet; */
 }
 
 .logo{
@@ -101,26 +100,6 @@ h3{
     object-fit: cover;
 }
 
-/* .dropdown{
-background-color: #E2E2E2;
-color:#0A2463;
-padding: 16px;
-font-size: 16px;
-border: none;
-cursor: pointer;
-} */
-
-/* Dropdown button on hover & focus */
-/* .dropdown:hover, .dropdown:focus {
-background-color: #2980B9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-/* .dropdown {
-    position: relative;
-    display: inline-block;
-} */
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -133,13 +112,7 @@ background-color: #2980B9;
     position: absolute;
     border-radius: 10px;
     background-color: #E2E2E2;
-    /* min-width: 160px; */
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-    /* z-index: 1;
-    offset-position: 8px; */
     font-weight: bold;
-    /* left: 0; */
-    /* width: fit-content; */
 }
 
 .dropdown-content a {
@@ -148,16 +121,12 @@ background-color: #2980B9;
     text-decoration: none;
     display: block;
     white-space: nowrap;
-    /* align-self: center; */
-    /* width: fit-content; */
   }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #888;
     border-radius: 10px;
-    /* display: block; */
-    /* width: fit-content; */
 }
 
 /* Show the dropdown menu on hover */
@@ -168,28 +137,6 @@ background-color: #2980B9;
     width: fit-content;
     align-content: center; */
 }
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
-
-/* .sidebar{
-    width: 50px;
-    height: 100%;
-    background-color: #0A2463;
-    position: fixed;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    padding-top: 80px;
-}
-
-.left-menu-icon{
-    color: #E2E2E2;
-    font-size: 20px;
-    margin-bottom: 20px;
-    padding-left: 15px;
-} */
 
 .container{
     background-color: black;
@@ -227,7 +174,6 @@ background-color: #2980B9;
     border: none;
     outline: none;
     font-weight: bold;
-    /* position: absolute; */
     bottom: 20px;
     left: 50px;
 }
@@ -235,12 +181,11 @@ background-color: #2980B9;
 .vote-container{
     margin-left: 100px;
     margin-right: 100px;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     position: relative;
-    /* height: 100px; */
 }
+
 .vote-form{
     border-radius: 12px;
     padding: 20px;
@@ -269,7 +214,6 @@ background-color: #2980B9;
     outline: none;
     font-weight: bold;
     bottom: 20px;
-    /* left: 50px; */
     opacity: 0.8;
     transition: 0.3s;
     justify-content: center;
@@ -288,21 +232,13 @@ background-color: #2980B9;
     outline: none;
     font-weight: bold;
     bottom: 20px;
-    /* left: 50px; */
-    /* opacity: 0.8;
-    transition: 0.3s; */
     justify-content: center;
     inline-size: 300px;
 }
 
-/* .content-container{
-    margin-left: 50px;
-} */
-
 .featured-content{
     height: 50vh;
     padding: 50px;
-    /* background-color: #247BA0; */
 }
 
 .featured-title{
@@ -334,7 +270,6 @@ background-color: #2980B9;
     border: none;
     outline: none;
     font-weight: bold;
-    /* cursor: pointer; */
     position: absolute;
     bottom: 20px;
     left: 50px;
@@ -342,7 +277,6 @@ background-color: #2980B9;
 
 .movie-list-container{
     padding: 20px;
-    /* transform: translateY(30px); */
     background-color: black;
 }
 
@@ -355,7 +289,6 @@ background-color: #2980B9;
     .movie-list-item{
         display: inline-block;
     }
-    /* background-color: black; */
 }
 
 .movie-list{
@@ -401,17 +334,6 @@ background-color: #2980B9;
     transition: 1s all ease-in-out;
 }
 
-/* .movie-list-item-description{
-    background-color: #E2E2E2;
-    padding: 0 10px;
-    font-size: 32;
-    font-weight: bold;
-    position: absolute;
-    top: 10%;
-    left: 50px;
-    opacity: 0;
-} */
-
 .movie-list-item-btn{
     padding: 10px;
     background-color: #FB3640;
@@ -421,33 +343,7 @@ background-color: #2980B9;
     border: none;
     outline: none;
     font-weight: bold;
-    /* cursor: pointer; */
     position: absolute;
     bottom: 20px;
     left: 50px;
 }
-
-.arrow{
-    font-size: 80px;
-    overflow-y: scroll;
-    white-space: nowrap;
-    position: absolute;
-    top: 110px;
-    right: 0;
-    color: #08d550;
-    opacity: 0.7;
-    cursor: pointer;
-    transition: all 1s ease-in-out;
-}
-
-/* .scroll-container {
-    background-color: black;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 10px;
-    scroll-behavior: smooth;
-}
-  
-.scroll-container img {
-    padding: 10px;
-} */
