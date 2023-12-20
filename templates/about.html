@@ -6,7 +6,7 @@
 
 
 {% block main %}
-<form action="/about" method="get">
+<form action="/" method="get">
     <p style="font-size: large; font-weight: bold; color: #E2E2E2;" >
         Project name - Family Movie Night
         <br>
@@ -14,6 +14,11 @@
         <br>
         Location - Walnut Creek, California, USA
     </p>
+    <br>
+    <br>
+    {% if session["user_id"] %}
+    <button class="submit-form-button" type="submit">Go Back</button>
+    {% endif %}
 </form>
 <p>
 {% endblock %}

@@ -34,9 +34,10 @@
 
                     <span class="profile-text">{{ session["user_name"] }}</span>
                         <i class="fa-solid fa-chevron-down" style="cursor: pointer;"></i>
-                        <div class="dropdown-content w3-dropdown-content" style="float:left;">
-                            <a href="/logout">Log Out</a>
-                        </div>
+                        <ul class="dropdown-content w3-dropdown-content" style="float:left;">
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/logout">Log Out</a></li>
+                        </ul>
                     </div>       
                 </div>
 
@@ -44,7 +45,7 @@
                 <div class="profile-container">
                     <ul class="menu-list">
                         <li class="menu-list-item active"><a style="text-decoration:none" class="menu-nav-link" href="/register">Register</a></li>
-                        <li class="menu-list-item"><a style="text-decoration:none" class="menu-nav-link" href="/login">Log In</a></li>
+                        <li class="menu-list-item"><a style="text-decoration:none" class="menu-nav-link" href="/login">Login</a></li>
                     </ul>
                 </div>
                 {% endif %}
